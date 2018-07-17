@@ -1,0 +1,13 @@
+Problem 1:
+
+This service will create and retrieve messages as desired. It is built using node.js, express, and the sha.js libraries. The logic is very straightforward and will connect to a mongodb via mongoose. The application is hosted on heroku and is accessible at http://paxos-service-slaud.herokuapp.com. The usage is as follows
+
+The following will create a message with content 'foobar':
+curl -X POST -H "Content-Type: application/json" -d '{"message": "foobar"}' paxos-service-slaud.herokuapp.com/messages
+
+To get a message:
+curl paxos-service-slaud.herokuapp.com/messages/<MESSAGE_ID>
+
+Running the code manually can be done by entering the paxos service directory, running an npm install, and running "npm start"
+
+Scaling this out would require some more work as this is a singlethreaded service. A smart thing to do would be to front this service with a loadbalancer, potentially across multiple nodes to maintain scalability. To handle the increased number of calls this would certainly help. 

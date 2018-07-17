@@ -1,0 +1,38 @@
+Problem 1 is available in the other directory submitted
+
+Problem 2:
+
+This algorithm will run in linear time. Reading from the end of a file is challenging but
+is necessary if we are dealing with a large file. Rather than reading every single line
+to begin with, we process only one line at a time (with some buffer overhead for reading from
+the end). We follow some simple logic. We start at the last line and the first line. If the sum
+of these two items is less than our gift card value, we read the next line from the beginning
+and store the answer as it is a valid response. Likewise, if the sum is greater than the value
+we decrement from the end of the file as this will lower the cost. We continue this until
+we either reach our desired value, we overlap in the middle of the file, or we read the same
+line twice in which case we've read everything that's possibly lower than our total value.
+In doing this, our algorithm runs in linear time (O(n)) where n is the number of lines in the file
+
+To run this code, simply run the precompiled jar file with the proper parameters like so:
+
+java -jar <Path-To-Filename> <Gift Card Value>
+
+e.g. java -jar prices.txt 2000
+
+I was unfortunately not able to complete the bonus problem.
+
+Problem 3:
+
+This algorithm is relatively straightforward. We use a queue to handle one X as a time. The logic
+is straightforward: we iterate over a string till we find a character X. We then add two strings to our
+queue: one with a '0' replacing X, and one with a '1' replacing X. We do this till we exhaust all
+strings with replacements. If we iterate over a string with no Xs, we print the result. Given that 2 strings 
+are created for every X, our complexity should be O(2^k) where k is the number of Xs. This is
+an exponential time algorithm of the class O(2^n) which represents the worst case scenario where all characters
+are X.
+
+To run this code, run the precompiled jar file with the proper parameters like so:
+
+java -jar replaceX.jar <Input String>
+
+e.g. java -jar replaceX.jar 1XXXX1
